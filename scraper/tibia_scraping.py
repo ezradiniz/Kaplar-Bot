@@ -17,3 +17,9 @@ def world(world_name):
 
 def character_status(character_name):
 	pass
+
+def loot(loot_name):
+	pass
+
+def item(item_name):
+	pass
