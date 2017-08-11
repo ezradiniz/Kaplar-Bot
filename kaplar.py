@@ -42,7 +42,7 @@ if __name__ == '__main__':
     bot = Kaplar(command_prefix)
 
     try:
-        token = load_token('YOUR TOKEN HERE !')
+        token = load_token('token.json')
         bot.run(token['token'])
     except Exception as e:
         print('Error: {}'.format(e))
