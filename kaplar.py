@@ -1,9 +1,9 @@
 from discord.ext import commands
 import json
 
-EXTENSIONS = [
-    'extensions.tibia',
-    'extensions.tibiawiki'
+PLUGINS = [
+    'cogs.tibia',
+    'cogs.tibiawiki'
 ]
 
 
@@ -24,12 +24,12 @@ class Kaplar(commands.Bot):
             print(e)
 
     def _load_extensions(self):
-        for ext in EXTENSIONS:
+        for cog in PLUGINS:
             try:
-                self.load_extension(ext)
-                print('Extension {} loaded successfully'.format(ext))
+                self.load_extension(cog)
+                print('Plugin {} loaded successfully'.format(cog))
             except Exception as e:
-                print('Failed to load extension {} - Erro: {}'.format(ext, e))
+                print('Failed to load extension {} - Erro: {}'.format(cog, e))
 
 
 def load_token(file):
