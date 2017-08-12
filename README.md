@@ -25,10 +25,10 @@ And execute the script kaplar.py
 
     >>> python3 kaplar.py
 
-###Commands
+### Commands
 * **!tibia character** *character name* - Show character profile
 * **!tibia deaths** *character name* - Show character deaths
-* **!tibia exiva** *character name* - Show if character is currently online [Beta]
+* **!tibia exiva** *character name* - Show if character is currently online [*Beta*]
 * **!wiki item** *item name* - Show item information
 * **!wiki monster** *monster name* - Show  monster information
 * **!wiki loot** *monster name* - Show monster drop loot
