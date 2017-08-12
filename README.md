@@ -1,4 +1,5 @@
 <img src="http://www.marionkapferer.de/Work/Tibia/MinotaurHunter.png" align="right" height="100" />
+
 Kaplar Bot
 ==========
 
