@@ -1,6 +1,5 @@
 <img src="http://www.marionkapferer.de/Work/Tibia/MinotaurHunter.png" alt="Kaplar Logo" title="Kaplar" align="right" height="100" />
-Kaplar Bot
-============================================
+#Kaplar Bot
 
 A simple Discord bot for tibia players
 
@@ -29,7 +28,7 @@ And execute the script kaplar.py
 ### Authors
 
 * **Mateus Esdras** [ezradiniz](https://github.com/ezradiniz)
-* **Raphael Oliveira ** [raphael0302](https://github.com/raphael0302)
+* **Raphael Oliveira** [raphael0302](https://github.com/raphael0302)
 
 ### License
 
