@@ -1,4 +1,4 @@
-<img src="http://www.marionkapferer.de/Work/Tibia/MinotaurHunter.png" alt="Kaplar Logo" title="Kaplar" align="right" height="100" />
+<img src="http://www.marionkapferer.de/Work/Tibia/MinotaurHunter.png" align="right" height="100" />
 #Kaplar Bot
 
 A simple Discord bot for tibia players
@@ -32,5 +32,5 @@ And execute the script kaplar.py
 
 ### License
 
-This project is licensed under the GNU Public License v3.0 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU Public License v.3.0 License - see the [LICENSE.md](LICENSE.md) file for details
 
