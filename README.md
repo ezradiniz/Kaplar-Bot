@@ -25,7 +25,7 @@ And execute the script kaplar.py
 
     >>> python3 kaplar.py
 
-###Commands
+### Commands
 * **!tibia character** *character name* - Show character profile
 * **!tibia deaths** *character name* - Show character deaths
 * **!tibia exiva** *character name* - Show if character is currently online [Beta]
@@ -34,8 +34,6 @@ And execute the script kaplar.py
 * **!wiki loot** *monster name* - Show monster drop loot
 
 ### Next Steps
-> Incomplete List
-
 * Moderation Features
 * Stream Alerts
 * Loggers
