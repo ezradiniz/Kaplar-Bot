@@ -1,6 +1,6 @@
 import urllib.request as req
 from bs4 import BeautifulSoup as bs
-from util import filter
+from util import utils
 
 CHARACTER_URL = 'https://secure.tibia.com/community/?name='
 WIKI_URL= 'http://tibia.wikia.com/wiki/'
@@ -8,7 +8,7 @@ WORLD_URL = 'https://secure.tibia.com/community/?subtopic=worlds&world='
 
 
 def character(character_name):
-    request_url = filter.url_filter_tibia(CHARACTER_URL, character_name)
+    request_url = utils.url_filter_tibia(CHARACTER_URL, character_name)
     content = req.urlopen(request_url).read()
     tables = bs(content, 'lxml').select('.BoxContent')[0].find_all('table')
     response = {
@@ -22,14 +22,14 @@ def character(character_name):
         trs = table.findAll('tr')
         if table_name == 'Character Information' or table_name == 'Account Information':
             for tr in trs:
-                text = filter.text_filter(tr.get_text())
+                text = utils.text_filter(tr.get_text())
                 if text != table_name:
                     key_value = text.split(':')
                     if key_value[1].strip() != '':
                         response[table_name][key_value[0]] = key_value[1]
         elif table_name == 'Account Achievements' or table_name == 'Character Deaths':
             for tr in trs:
-                text = filter.text_filter(tr.get_text())
+                text = utils.text_filter(tr.get_text())
                 if text != table_name:
                     response[table_name].append(text)
     return response
@@ -45,7 +45,7 @@ def character_key(key, character_name):
 def world(world_name):
     response = {}
     try:
-        request_url = filter.url_filter_tibia(WORLD_URL, world_name.title())
+        request_url = utils.url_filter_tibia(WORLD_URL, world_name.title())
         content = req.urlopen(request_url).read()
         tables = bs(content, 'lxml').find_all('div', lass_='InnerTableContainer')[1].table
         rows = tables.find_all('tr', recursive=False)
@@ -60,7 +60,7 @@ def world(world_name):
 
 
 def character_status(character_name):
-    request_url = filter.url_filter_tibia(CHARACTER_URL, character_name)
+    request_url = utils.url_filter_tibia(CHARACTER_URL, character_name)
     content = req.urlopen(request_url).read()
     tables = bs(content, 'lxml').select('.BoxContent')[0].find_all('table')
     response = {
@@ -70,7 +70,7 @@ def character_status(character_name):
     for i in range(len(tables), 0, -1):
         try:
             for t in tables[i].select('.green'):
-                char_name = filter.text_filter(t.parent.parent.td.get_text().lower()).split('.')[1].strip()
+                char_name = utils.text_filter(t.parent.parent.td.get_text().lower()).split('.')[1].strip()
                 if char_name == character_name:
                     response['status'] = 'online'
                     return response
@@ -80,7 +80,7 @@ def character_status(character_name):
 
 
 def loot(loot_name):
-    request_url = filter.url_filter_tibia(WIKI_URL, loot_name.title())
+    request_url = utils.url_filter_tibia(WIKI_URL, loot_name.title())
     response = {}
     try:
         content = req.urlopen(request_url).read()
@@ -92,7 +92,7 @@ def loot(loot_name):
 
 
 def item(item_name):
-    request_url = filter.url_filter_wiki(WIKI_URL, item_name.title())
+    request_url = utils.url_filter_wiki(WIKI_URL, item_name.title())
     response = {
         'item': {},
         'image': {}
@@ -122,7 +122,7 @@ def item(item_name):
 
 
 def monster(monster_name):
-    request_url = filter.url_filter_wiki(WIKI_URL, monster_name.title())
+    request_url = utils.url_filter_wiki(WIKI_URL, monster_name.title())
     response = {
         'monster': {},
         'image': {}

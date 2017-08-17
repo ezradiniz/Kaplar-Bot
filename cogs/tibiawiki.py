@@ -1,6 +1,6 @@
 from discord.ext import commands
 from scraper import tibia_scraping
-from util import embed, filter
+from util import embed, utils
 
 
 class Tibiawiki(object):
@@ -17,7 +17,7 @@ class Tibiawiki(object):
     async def _item(self, *item):
         item = ' '.join(item)
         res = tibia_scraping.item(item)
-        url = '{}'.format(filter.url_filter_wiki(tibia_scraping.WIKI_URL, item.title()))
+        url = '{}'.format(utils.url_filter_wiki(tibia_scraping.WIKI_URL, item.title()))
         em = embed.embed_template(title='Tibia Wiki', url=url)
         if len(res['item']) == 0:
             em.add_field(name='Kaplar', value='Item not found')
@@ -32,7 +32,7 @@ class Tibiawiki(object):
         monster = ' '.join(monster)
         res = tibia_scraping.monster(monster)
         try:
-            url = '{}'.format(filter.url_filter_wiki(tibia_scraping.WIKI_URL, monster.title()))
+            url = '{}'.format(utils.url_filter_wiki(tibia_scraping.WIKI_URL, monster.title()))
             em = embed.embed_template(title='Monster Wiki', url=url)
             if len(res['image']) != 0:
                 em.set_image(url=res['image']['url'])
@@ -51,7 +51,7 @@ class Tibiawiki(object):
         monster = ' '.join(monster)
         res = tibia_scraping.loot(monster)
         try:
-            url = '{}'.format(filter.url_filter_wiki(tibia_scraping.WIKI_URL, monster.title()))
+            url = '{}'.format(utils.url_filter_wiki(tibia_scraping.WIKI_URL, monster.title()))
             em = embed.embed_template(title='Loot Wiki', url=url)
             if len(res) == 0:
                 em.add_field(name='Kaplar', value='Monster not found')

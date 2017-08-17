@@ -1,6 +1,6 @@
 from discord.ext import commands
 from scraper import tibia_scraping
-from util import embed, filter
+from util import embed, utils
 import time
 
 
@@ -22,7 +22,7 @@ class Tibia(object):
     async def _char(self, *character_name):
         name = get_name(*character_name)
         character = tibia_scraping.character(name)
-        url = '{}'.format(filter.url_filter_tibia(tibia_scraping.CHARACTER_URL, name))
+        url = '{}'.format(utils.url_filter_tibia(tibia_scraping.CHARACTER_URL, name))
         em = embed.embed_template(title='Character Information', url=url)
         for key in character['Character Information']:
             em.add_field(name=key, value=character['Character Information'][key])
@@ -34,7 +34,7 @@ class Tibia(object):
     async def _death(self, *character_name):
         name = get_name(*character_name)
         deaths = tibia_scraping.character_key('Character Deaths', name)
-        url = '{}'.format(filter.url_filter_tibia(tibia_scraping.CHARACTER_URL, name))
+        url = '{}'.format(utils.url_filter_tibia(tibia_scraping.CHARACTER_URL, name))
         em = embed.embed_template(title='Character Deaths', url=url)
         if 'Error' in deaths:
             em.add_field(name="Kaplar !", value='Deaths not found')
