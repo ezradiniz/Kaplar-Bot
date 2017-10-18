@@ -1,4 +1,4 @@
-<img src="http://www.marionkapferer.de/Work/Tibia/MinotaurHunter.png" align="right" height="220" />
+<img src="https://i.imgur.com/PAhKjtU.jpg" align="right" height="220" />
 
 Kaplar Bot
 ==========
@@ -16,14 +16,15 @@ Discord.py
 ### Running 
 Put your credentials in token.json
 
-```
+```js
 {
 	"token": "PUT YOUR TOKEN HERE"
 }
 ```
 And execute the script kaplar.py
-
+```python
     >>> python3 kaplar.py
+```
 
 ### Commands
 * **!tibia character** *character name* - Show character profile
