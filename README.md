@@ -11,6 +11,8 @@ What things you need to run the script
 ```
 Python 3.4.2+
 Discord.py
+BeautifulSoup4
+lxml
 ```
 
 ### Running 
