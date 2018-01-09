@@ -40,8 +40,10 @@ class Tibiawiki(object):
                 em.add_field(name='Kaplar', value='Monster not found')
             else:
                 for key in res['monster']:
-                    if res['monster'][key] != '' and key != '':
-                        em.add_field(name=key, value=res['monster'][key])
+                    k = key.rstrip()
+                    v = res['monster'][key].rstrip()
+                    if len(k) > 0 and len(v) > 0:
+                        em.add_field(name=k, value=v)
         except Exception as e:
             print('Exception monster {}'.format(e))
         await self.bot.say(embed=em)
